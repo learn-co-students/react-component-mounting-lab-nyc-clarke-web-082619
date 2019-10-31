@@ -8,13 +8,14 @@ class Timer extends Component {
   }
 
   // add your code here
+  componentDidMount() {
+    this.interval = setInterval(this.clockTick, 1000) // again, why no parenthesis to call clockTick
+  } // also, why do we need 'this' in front of interval?
 
-
-
-
-
-
-
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  
   render() {
 
     const { time, color, className } = this.state
